@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>吃啥bot</title>
+		<style type="text/css">
+			*{
+				margin: auto;
+				padding: 0px;
+				text-align: center;
+				font-family: "微软雅黑";
+			}
+			.content{
+                margin-top: 72px;
+				border-radius: 10%;
+				width: 400px;
+				height: 400px;
+                background-image: url(https://c-ssl.duitang.com/uploads/blog/202011/29/20201129193954_f85a4.thumb.400_0.jpg);
+				/* background-color: #87CEFA; */
+			}
+			.enter{
+				border-radius: 50%;
+				width: 20%;
+				height: 72px;
+				background-color: #FF1493;
+                font-size: large;
+			}
+			#result{
+				margin-top: 24px;
+                padding-left: 10px;
+                padding-right: 10px;
+				font-size: 16px;
+				width: 60%;
+				height: 72px;
+				text-align: center;
+				border-radius: 20px;
+				background-color: #FFFFE0;
+			}
+			.choice{
+				margin-top: 36px;
+				font-size: xx-large;
+				border-radius: 10%;
+				width: 20%;
+				height: 72px;
+				background-color:beige;
+			}
+		</style>
+		<script type="text/javascript">
+			function clearValue(){
+				document.getElementById("result").value="";
+			}
+			function get(value){
+				document.getElementById("result").value = value;
+			}
+            var li = ['一楼炒菜', '一楼麻辣烫','一楼小包子',
+                        '二楼自选','二楼石锅拌饭','二楼米皮','二楼汉堡',
+                        '原之味炒菜', '原之味汉堡', '兰州拉面'];  
+            var wen = [
+                '一楼猪肘饭', '一楼炒菜', '一楼麻辣烫', '一楼盖饭', 
+                '二楼猪肚鸡', '二楼石锅拌饭', '二楼咕噜鸡',
+                '芸锦拉面', '福莲餐厅', '思蜀','主考官'
+            ];
+            function enter(){
+                var answer;
+                var location = answer = document.getElementById("result").value;
+                if (location == '理科'){
+                    var random = Math.floor(Math.random() * 100 + 1);
+                    var seed = random % li.length;
+                    answer = document.getElementById("result").value + li[seed]; 
+                }
+                if (location == '文科'){
+                    var random = Math.floor(Math.random() * 100 + 1);
+                    var seed = random % li.length;
+                    answer = document.getElementById("result").value + li[seed]; 
+                }
+                if (location == '都行'){
+                    var full_name = li.concat(wen);
+                    var random = Math.floor(Math.random() * 100 + 1);
+                    var seed = random % full_name.length;
+                    if(seed <= li.length){
+                        answer = "理科"+ full_name[seed]; 
+                    }
+                    else{
+                        answer = "文科"+ full_name[seed]; 
+                    }
+                }
+                document.getElementById("result").value = answer;
+            };
+		</script>
+
+	</head>
+	<body>
+		<!-- <div class="banner">
+			<h2>
+				Eat what?
+			</h2>
+		</div>
+			<br /> -->
+		<div class="content">
+            <h2>
+				Eat what?
+			</h2>
+			<input type="text" id="result"  placeholder="Hamburger?"/>
+			<br />
+            <input type="button" value="都行" class="choice" onclick="get(this.value)"/>
+			<input type="button" value="理科" class="choice" onclick="get(this.value)"/>
+            <input type="button" value="文科" class="choice" onclick="get(this.value)"/>
+            <br />
+            <br />
+            <input type="button" value="重选" class="enter" onclick="clearValue()"/>
+            <input type="button" value="冲！" class="enter" onclick="enter()"/> 
+		</div>
+			<br />
+		<div class="footer">
+			<p align="center">CopyRight &copy; QQZ</p>
+		</div>
+	</body>
+</html>
+
