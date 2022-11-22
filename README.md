@@ -1,4 +1,4 @@
-# Eat_bot
+# Eat_bot 吃饭选择困难症终结者
 A simple webpage to play with good friends
 
 ## Follow
